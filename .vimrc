@@ -22,7 +22,7 @@ fu! MyTabLabel(n)
 	let buflist = tabpagebuflist(a:n)
 	let winnr = tabpagewinnr(a:n)
 	let string = fnamemodify(bufname(buflist[winnr - 1]), ':t')
-	let string = (getbufvar(bufnr(winnr), "&mod") ? '*':'') . string
+	let string = (getbufvar(buflist[winnr - 1], "&mod") ? '*':'') . string
 	return empty(string) ? '[unnamed]' : string
 endfu
 
