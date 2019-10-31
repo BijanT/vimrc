@@ -21,6 +21,9 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufRead * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+"If we're opening a makefile, use tabs instead of spaces
+autocmd FileType make setlocal noexpandtab softtabstop=0
+
 "Display tab numbers on the tab
 fu! MyTabLabel(n)
 	let buflist = tabpagebuflist(a:n)
